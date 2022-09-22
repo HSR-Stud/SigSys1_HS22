@@ -23,21 +23,25 @@
     lang={german},
 ]{doclicense}
 
+%other Packages
+\usepackage{multicol,multirow}
+%amssymb,amsmath,fancybox,graphicx,color,lastpage,
+%wrapfig,fancyhdr,hyperref,verbatim,floatflt,
+%multicol,multirow,rotating,pdflscape,array,longtable
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Metadata
 
 \course{Elektrotechnik}
-\module{ModAbk}
-\semester{Fr\"uhlingssemester 2020}
+\module{SigSys}
+\semester{Herbstsemester 2022}
 
-\authoremail{vorname.name@ost.ch}
-\author{\textsl{Vorname Name} -- \texttt{\theauthoremail}}
+\authoremail{joel.leirer@ost.ch}
+\author{\textsl{Joël Leirer} -- \texttt{\theauthoremail}}
 
 % did someone help you with this work?
 \contributors{
-  % I created this template, does that count?
-  Naoki Pross
-  % do not forget to add yourself!
+
 }
 
 \title{\texttt{\themodule} Zusammenfassung}
@@ -62,7 +66,7 @@
 
 \section*{Lizenz}
 \doclicenseThis
-
+\clearpage
 \tableofcontents
 
 % actual content
@@ -70,10 +74,35 @@
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-\section{Einf\"uhrung}
-\[
-  i\hbar \partial_t \left| \psi(t) \right\rangle 
-    = \hat{H} \left| \psi(t) \right\rangle
-\]
+\section{Signalklassen}
+\begin{multicols}{2}
+  \includegraphics[width = 7cm]{img/Signalklassen.png}
+  \subsection{weiter Unterteilungen}
+    \begin{tabular}{|c|c|}
+    Reell $\mathbb{R}$  &  Complex $\mathbb{C}$ \\
+    Eindimensional & Mehrdimensional\\
+    Stochastisch & Deterministisch \\
+    Energiesignale & Leistungssignal \\
+    \end{tabular}
+\end{multicols}
+\begin{tabular}{lll}
+  Energiesiegnal Klasse 1 &
+  Energiesiegnal Klasse 2a &
+  Energiesiegnal Klasse 2b
+\end{tabular}
+ 
+
+\section{Mittelwerte}
+\begin{tabular}{ccc}
+  Linearer Mittelwert & Quadratischer Mittelwert & Effektivwert \tiny{(Quadratischer Mittelwert)}\\
+  $ x_m = \bar{x} = x_0 = \frac{1}{T} 
+  \int \limits _{-T/2}^{T/2} x(t) dt $ &
+  $ x^2 = \frac{1}{T} \int \limits _{T/2}^{-T/2} x^2(t) dt $ &
+  $ x^2 = \frac{1}{T} \int \limits _{T/2}^{-T/2} \sqrt{x^2(t)} dt $
+
+\end{tabular} 
+
+
+
 
 \end{document}
