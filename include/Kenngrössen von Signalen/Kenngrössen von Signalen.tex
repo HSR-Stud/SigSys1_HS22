@@ -1,0 +1,44 @@
+\section{Kenngrössen von Signalen}
+\begin{tabular}{p{6cm}p{12cm}}
+  Linearer Mittelwert
+  \newline \tiny(auch: $ \bar{x}, x_m$)                                         &
+  $X_0 = \frac{1}{T} \int \limits _{-T/2}^{T/2} x(t) dt $                         \\
+  Quadratischer Mittelwert
+  \newline  \tiny(nur Signale Klasse 2a \newline
+  Klasse 2b mit: $\lim_{t \to \infty}$)                                         &
+  $X^2 = \frac{1}{T} \int \limits _{-T/2}^{T/2} x^2(t) dt$                        \\
+  Effektivwert \newline \tiny{("Quadratischer Mittelwert", RMS)}                &
+  $X^2 = \frac{1}{T} \int \limits _{-T/2}^{T/2} \sqrt{x^2(t)} dt $                \\
+  Mittelwert n. Ordnung \newline \tiny(nur Signale $\in \mathbb{R}$, Klasse 2a) &
+  $X^n = \frac{1}{T} \int \limits _{-T/2} ^{T/2} x^n(t)dt$                        \\
+  Varianz                                                                       &
+  $Var(x) = \sigma^2 = \frac{1}{T} \int \limits _{-T/2} ^{T/2} (x(t) - X_0)^2 dt$ \\
+  Standardabweichung                                                            &
+  $\sigma = \sqrt{Var(x)} = \sqrt{X^2 - (X_0)^2}$                                 \\
+\end{tabular}
+
+\subsubsection*{Die Autokorrelationsfunktion (AKF)}
+$$ \varphi_{xx}(\pm \tau) = \frac{1}{T} \int \limits _{-T/2} ^{T/2} x(t) \cdot x(t- \tau) dt
+  = \frac{1}{T} \int \limits _{-T/2} ^{T/2} x(t + \tau) \cdot x(t)dt$$
+\subsubsection*{Eigenschaften:}
+\begin{itemize}
+  \item $\varphi_{xx}(0) = X^2 = (X_0)^2 + \sigma^2$ \tiny Quadratischer Mittelwert \normalsize
+  \item $\varphi_{xx}(\tau) = \varphi_{xx}(\tau \pm n \cdot T)$, mit $n \in \mathbb{N}$,
+        AKF hat gleiche Periode $T$ wie $x(t)$
+  \item $\varphi_{xx}(\tau) = \varphi_{xx}(-\tau)$, AKF ist gerade Funktion
+  \item $\varphi_{xx}(0) \geq \left|\varphi_{xx}(\tau)\right|$
+  \item $\varphi_{xx}(\tau) \geq (X_0)^2 - \sigma^2$
+\end{itemize}
+
+\subsection{Vergleich Signalleistung / physikalische Leistung}
+Leistungsverhältnisse zweier Leistungen wird oft in dB, Dezibel angegeben.
+Bel steht für das Verhältnis zweier Werte im Zehnerlogarithmus.
+Aufgrund des d (=dezi) muss ein Faktor 10 verwendet werden.
+Werden anstelle Leistungen Effektivwerte genommen wird ein Faktor 20 benötigt.
+$$10 \cdot \log_{10} (\frac{P_y}{P_x}) = 
+10 \cdot \log_{10}(\frac{(y_{rms})^2}{(x_{rms})^2}) = 
+20 \cdot log_{10}(\frac{y_{rms}}{x_{rms}}) = k[\textrm{dB}]$$ 
+daraus folgt:
+$$P_y = P_x \cdot 10^{\frac{k}{10}} \; P_x = \frac{P_y}{10^{\frac{k}{10}}}$$
+bzw:
+$$y_{rms} = x_{rms} \cdot 10^{\frac{k}{20}} \; x_{rms} = \frac{y_{rms}}{10^{\frac{k}{20}}}$$
