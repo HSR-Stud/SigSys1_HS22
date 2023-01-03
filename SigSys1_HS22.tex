@@ -24,8 +24,16 @@
 ]{doclicense}
 
 %other Packages
-\usepackage{multicol,multirow}
-\usepackage[export]{adjustbox}
+\usepackage{multicol}
+\usepackage{adjustbox}
+\usepackage{color, colortbl}
+\usepackage{trfsigns}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{pdfpages}
+\definecolor{TabularBackgroundColor}{rgb}{0.83,0.96,0.96}
 %amssymb,amsmath,fancybox,graphicx,color,lastpage,
 %wrapfig,fancyhdr,hyperref,verbatim,floatflt,
 %multicol,multirow,rotating,pdflscape,array,longtable
@@ -67,22 +75,41 @@
 
 \section*{Lizenz}
 \doclicenseThis
-\clearpage
+
+\subsection*{Note:}
+Erlaubte Hilfsmittel HS22:
+\begin{itemize}
+    \item Unterrichtsskript
+    \item Selbsterstellte Zusammenfassung
+    \item Taschenrechner: "TI-30 ECO RS", wird zur Verfügung gestellt an der Prüfung.
+\end{itemize}
+\includegraphics[width=3cm]{img/Taschenrechner.png}
+
+\newpage
 \tableofcontents
 
 % actual content
-\clearpage
+\newpage
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
+\input{include/Integraltransformationen/Integraltransformationen.tex}
+\input{include/Wichtige Funktionen/Wichtige Funktionen.tex}
 \input{include/Signalklassen/Signalklassen.tex}
 \input{include/Kenngrössen von Signalen/Kenngrössen von Signalen.tex}
-\input{include/Wichtige Funktionen/Wichtige Funktionen.tex}
-\input{include/Fourier Reihe/Fourier-Reihe.tex}
-
-
+\input{include/Signalflussdiagramme/Signalflussdiagramme.tex}
+\newpage
 \section{Anhang}
+\input{include/Integrieren und Differenzieren/Integrieren und Differenzieren.tex}
 \input{include/Wichtige Werte & Vereinfachungen/Wichtige Werte & Vereinfachungen.tex}
-\includegraphics{img/Tabelle_Dichtefunktionen.png}
-\includegraphics{img/Tabelle_Signale und Funktion.png}
+\subsection{Tabelle Dichtefunktionen (skript S.38)}
+\subsection{Tabelle Signale/Funktion (Skript S.44)}
+\subsection{Tabelle der Q-Funktion (Skript S.51)}
+\subsection{Tabelle Fourier-Transformationspaare (Skript S.151)}
+\subsection{Tabelle Laplace-Transfromationspaare (Skript S.158)}
+
+\includepdf[pages=-]{AnhangPDF/fourierLaplaceTabelle_v02.pdf}
+
+
+\end{document}
 

@@ -1,4 +1,4 @@
-
+% Needs Package: \usepackage{bm}
 \section{LTI-Systeme}
 
 $ y(t) = \mathcal{T}[x(t)]$
@@ -23,13 +23,12 @@ $ y(t) = \mathcal{T}[x(t)]$
 
     \subsubsection{Impulsantwort}
     Impulsfunktion $\delta(t)$ wird am Eingang des Systems angelegt,
-    Die Reaktion darauf am Ausgang nennt man die Impulsantwort $h(t)$.
-    Die Impulsantwort beschreibt ein LTI-System vollständig.
+    die Reaktion darauf am Ausgang nennt man die \textbf{Impulsantwort} \bm{$h(t)$}.
+    Sie beschreibt ein LTI-System vollständig.
 
     $$ y(t) = \mathcal{T}[x(t)]
         = \int \limits _{-\infty} ^{infty} x(\tau) \cdot h(t-\tau)d\tau
         = x(t) * h(t)$$
-
     \subsubsection*{Kausalität}
     Bei einem Kausalen System ist $h(t) = 0$ für $t<0$
 
@@ -60,18 +59,18 @@ $ y(t) = \mathcal{T}[x(t)]$
     \end{itemize}
 
     \subsubsection{Frequenzantwort}
-    Die Frequenzantwort ist die Fouriertransformierte Impulsantwort.
+    Die \textbf{Frequenzantwort} $\bm{H(\omega)}$ ist die Fouriertransformierte Impulsantwort.
     Sie ist eine komplexwertige dimensionslose Gewichstsfunktion.
-    Auch die Frequenzantwort $H(\omega)$ beschreibt ein LTI-System vollständig.
+    Auch sie beschreibt ein LTI-System vollständig.
 
+    $$ Y(\omega) = X(\omega) \cdot H(\omega)$$
 
-
-    $ Y(\omega) = X(\omega) \cdot H(\omega)$
     \subsubsection*{Berechnung des Ausgangssignals}
-
-    Fourier-Transformation:  $X(\omega) = \mathcal{F}[x(t)]$ \\
-    Berechnung Frequenzbereich:  $Y(\omega) = X(\omega) \cdot H(\omega)$ \\
-    Fourier-Rücktransformation:  $y(t) = \mathcal{F}^{-1}[Y(\omega)]$ \\
+\begin{enumerate}
+   \item Fourier-Transformation:  $X(\omega) = \mathcal{F}[x(t)]$ 
+   \item Berechnung in Frequenz  $Y(\omega) = X(\omega) \cdot H(\omega)$ 
+   \item Rücktransformation:  $y(t) = \mathcal{F}^{-1}[Y(\omega)]$ 
+\end{enumerate}
 
 
     \subsubsection*{Bezeichnungen}
@@ -84,6 +83,20 @@ $ y(t) = \mathcal{T}[x(t)]$
     $|Y(\omega)| = |X(\omega)| \cdot |H(\omega)|$ \\
     $\varphi_y(\omega) = \varphi_x(\omega) + \varphi_H(\varphi)$
 
-
+    \subsubsection*{Filtertypen}
+    \begin{itemize}
+        \item Tiefpassfilter: Alle Frequenzen \textbf{grösser} als Eckfrequenz $\omega_c$ werden weggefiltert.
+        \\ $H(\omega) = 0$ für $|\omega| > \omega_c$
+        \\ Bandbreite: Von Frequenz 0 Hz bis Eckfrequenz.
+        \item Hochpassfilter: Alle Frequenzen \textbf{kleiner} als Eckfrequenz $\omega_c$ werden weggefiltert.
+        \\ $H(\omega) = 0$ für $|\omega| < \omega_c$
+        \item Bandpassfilter: Alle Frequenzen \textbf{ausserhalb} der Eckfrequenzen $\omega_{c1,2}$ werden weggefiltert.
+        \\ $H(\omega) = 0$ für $|\omega| < \omega_{c1}$  und $H(\omega) = 0$ für $|\omega| > \omega_{c2}$
+        \\ Bandbreite: Von unterer bis zur oberen Eckfrequenz
+        \item Bandsperre: Alle Frequenzen \textbf{innerhalb} der Eckfrequenzen $\omega_{c1,2}$ werden weggefiltert.
+        \\ $H(\omega) = 0$ für $\omega_{c1} < |\omega| < \omega_{c2}$
+        \item Quadraturfilter: Schiebt die Phase um $-90^{\circ}$.
+        $H(\omega) = -j \cdot sign(\omega)$
+    \end{itemize}
 
 \end{multicols}
